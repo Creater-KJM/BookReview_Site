@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>책뷰-Book review site</title>
+    <link rel="stylesheet" href="{% static 'home.css' %}" type="text/css">     
+</head>
+<body>
+    <span>
+    <h1>책뷰-Book review site</h1>
+    <img src="https://t1.daumcdn.net/liveboard/interbiz/243b4982677c480caa2761974a9e3ef6.JPG" alt="띵언" >
+    </span>
+    {% block content %}
+    <h2>리뷰 목록</h2>
+        {% for post in posts %}
+        <li><a href="{% url 'review' post.pk %}">{{ post.title }}</a></li>
+        <br>
+        {% endfor %}
+        <a href="{% url 'write' %}"> 새 리뷰 쓰기</a>
+    {% endblock %}     
+</body>
+</html>

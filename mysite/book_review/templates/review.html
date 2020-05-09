@@ -1,0 +1,27 @@
+{% extends "home.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>책 리뷰</title>
+    <link rel="stylesheet" href="{% static 'review.css' %}" type="text/css">
+  </head>
+{% block content %}
+  <body>
+    <h2>제목:{{ post.title }}</h2>
+    <h5>가격:{{ post.price }}원</h5>
+    <h5>평점(10점 만점):{{ post.evaluate }}점</h5>
+    <h5>후기:{{ post.contents }}</h5>
+    <a href="{% url 'modify' post.pk %}">수정하기</a>
+    <br>
+    <br>
+    <br>
+    <a href="{%url 'delete' post.pk %}">삭제하기</a>
+    <br>
+    <br>
+    <br>
+    <a href="{% url 'home' %}">리뷰 목록</a>
+  </body>
+{% endblock %}  
+</html>
